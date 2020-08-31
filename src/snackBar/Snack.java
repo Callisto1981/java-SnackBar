@@ -2,29 +2,19 @@ package snackBar;
 
 public class Snack {
     private static int maxId = 0;
-
     private int id;
-    private String name;
-    private int quantity;
-    private double cost;
-    private int vendingId;
+    public String name;
+    public int quantity;
+    public double cost;
+    public int vendingMachineId;
 
-    public Snack(String name, int quantity, double cost, int vendingId) {
+    public Snack(String name, int quantity, double cost, int vendingMachineId) {
         maxId++;
         id = maxId;
-
         this.name = name;
         this.quantity = quantity;
         this.cost = cost;
-        this.vendingId = vendingId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+        this.vendingMachineId = vendingMachineId;
     }
 
     public void setName(String name) {
@@ -35,25 +25,15 @@ public class Snack {
         return quantity;
     }
 
-    public double getCost() {
-        return cost;
+    public void addQuantity(int q) {
+        this.quantity += q;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void buySnack(int q) {
+        this.quantity -= q;
     }
 
-    public int getVendingId() {
-        return vendingId;
+    public double getCost(int q) {
+        return this.cost * q;
     }
-
-    public void setVendingId(int vendingId) {
-        this.vendingId = vendingId;
-    }
-
-    public void addQuantity(int quant1) {
-        this.quantity = quant1;
-    }
-    // missing add quantity, buy snack, get total cost
-
 }

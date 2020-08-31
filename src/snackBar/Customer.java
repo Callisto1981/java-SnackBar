@@ -2,19 +2,24 @@ package snackBar;
 
 public class Customer {
     private static int maxId = 0;
-    private static int id;
-    private String name;
-    private double cash;
+    public int id;
+    public String name;
+    public double cash;
 
     public Customer(String name, double cash) {
         maxId++;
-        id = maxId;
+        this.id = maxId;
         this.name = name;
         this.cash = cash;
     }
 
-    public int getId() {
-        return id;
+    public void addCash(double c) {
+        this.cash += c;
+
+    }
+
+    public void buy(double c) {
+        this.cash -= c;
     }
 
     public String getName() {
@@ -28,9 +33,4 @@ public class Customer {
     public double getCash() {
         return cash;
     }
-
-    public void addCash(double num1) {
-        this.cash = cash + num1;
-    }
-    // buy snacks
 }
